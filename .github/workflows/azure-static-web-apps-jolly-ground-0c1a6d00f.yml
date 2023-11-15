@@ -28,6 +28,10 @@ jobs:
           echo "npm install and build"
           npm install -g @angular/cli@16.2.10
           npm install
+      - name: List files in directory
+        run: |
+          ls
+          ls -R src/
       - name: Replace environment variables
         run: |
           sed -i "s#REPLACE_WITH_GITHUB_SECRET_API_URL#${{ secrets.API_URL }}#g" src/environments/environment.ts
