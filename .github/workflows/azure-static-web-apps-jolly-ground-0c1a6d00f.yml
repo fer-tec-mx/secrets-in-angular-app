@@ -19,12 +19,14 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1
+      - name: Set Node.js for Build And Deploy
+        uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-      - name: npm install
+          node-version: '18.13'
+      - name: Run custom script
         run: |
+          echo "npm install and build"
+          npm install -g @angular/cli@16.2.10
           npm install
       - name: Set Secrets
         run: |
